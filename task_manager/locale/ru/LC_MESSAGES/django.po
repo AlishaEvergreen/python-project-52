@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-13 22:04+0300\n"
+"POT-Creation-Date: 2025-04-13 23:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,39 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: settings.py:130
-msgid "English"
-msgstr ""
 
-#: settings.py:131
+#: task_manager/settings.py:133
+msgid "English"
+msgstr "Английский"
+
+#: task_manager/settings.py:134
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
+
+#: task_manager/templates/index.html:4 task_manager/templates/navbar.html:5
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: task_manager/templates/index.html:8
+msgid "Welcome to Task Manager"
+msgstr "Добро пожаловать"
+
+#: task_manager/templates/index.html:10
+msgid "Task Manager is a simple but powerful system for managing tasks."
+msgstr "Менеджер задач – это простая, но мощная система для управления задачами."
+
+#: task_manager/templates/index.html:11
+msgid "Create tasks, assign performers and update statuses – all in one place."
+msgstr "Создавайте задачи, назначайте исполнителей и обновляйте статусы – все в одном месте."
+
+#: task_manager/templates/navbar.html:9
+msgid "Users"
+msgstr "Пользователи"
+
+#: task_manager/templates/navbar.html:12
+msgid "Log In"
+msgstr "Вход"
+
+#: task_manager/templates/navbar.html:15
+msgid "Sign Up"
+msgstr "Регистрация"

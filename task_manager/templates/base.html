@@ -1,5 +1,7 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% get_current_language as LANGUAGE_CODE %}
 
 
@@ -9,18 +11,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
-    {% bootstrap_css %}
   </head>
   <body class="d-flex flex-column min-vh-100 text-white bg-dark fs-6 lh-base">
     <header>
         {% include "navbar.html" %}
     </header>
-    <main class="container wrapper flex-grow-1 text-center d-flex align-items-center justify-content-center">
+    <main class="container flex-grow-1 d-flex align-items-center justify-content-center py-5">
         {% bootstrap_messages %}
         {% block content %}{% endblock %}
     </main>
-    <footer class="py-3 text-white-50">
+    <footer class="mt-auto py-4">
         {% include "footer.html" %}
     </footer>
-   </body>
+  </body>
 </html>

@@ -3,12 +3,18 @@ from django.views.generic import (
     CreateView,
     # DeleteView,
     # DetailView,
-    # ListView,
+    ListView,
     # UpdateView,
 )
 
 from task_manager.users.models import User
 from task_manager.users.forms import CustomUserCreationForm
+
+
+class UserListView(ListView):
+    model = User
+    template_name = 'users/index.html'
+    context_object_name = 'users'
 
 
 class UserCreateView(CreateView):

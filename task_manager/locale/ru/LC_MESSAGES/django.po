@@ -6,13 +6,13 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: task_manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-13 23:36+0300\n"
+"POT-Creation-Date: 2025-04-20 16:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Last-Translator: Alina makarovskaya1307@gmail.com\n"
+"Language-Team: Russian <LL@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,13 +20,30 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/settings.py:133
+#: task_manager/settings.py:139
 msgid "English"
 msgstr "Английский"
 
-#: task_manager/settings.py:134
+#: task_manager/settings.py:140
 msgid "Russian"
 msgstr "Русский"
+
+#: task_manager/templates/form.html:4 task_manager/templates/form.html:11
+#: task_manager/templates/navbar.html:18
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: task_manager/templates/form.html:34
+msgid "Create Account"
+msgstr "Зарегистрировать"
+
+#: task_manager/templates/form.html:40
+msgid "Already have an account?"
+msgstr "У вас уже есть аккаунт?"
+
+#: task_manager/templates/form.html:41
+msgid "Sign In"
+msgstr "Войти"
 
 #: task_manager/templates/index.html:4 task_manager/templates/navbar.html:5
 msgid "Task Manager"
@@ -38,20 +55,51 @@ msgstr "Добро пожаловать"
 
 #: task_manager/templates/index.html:10
 msgid "Task Manager is a simple but powerful system for managing tasks."
-msgstr "Менеджер задач – это простая, но мощная система для управления задачами."
+msgstr ""
+"Менеджер задач – это простая, но мощная система для управления задачами."
 
 #: task_manager/templates/index.html:11
 msgid "Create tasks, assign performers and update statuses – all in one place."
-msgstr "Создавайте задачи, назначайте исполнителей и обновляйте статусы – все в одном месте."
+msgstr ""
+"Создавайте задачи, назначайте исполнителей и обновляйте статусы – все в "
+"одном месте."
 
-#: task_manager/templates/navbar.html:9
+#: task_manager/templates/navbar.html:12
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/navbar.html:12
+#: task_manager/templates/navbar.html:15
 msgid "Log In"
 msgstr "Вход"
 
-#: task_manager/templates/navbar.html:15
-msgid "Sign Up"
-msgstr "Регистрация"
+#: task_manager/users/forms.py:15
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: task_manager/users/forms.py:16
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+
+#: task_manager/users/forms.py:19 task_manager/users/models.py:26
+msgid "First Name"
+msgstr "Имя"
+
+#: task_manager/users/forms.py:20 task_manager/users/models.py:31
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: task_manager/users/forms.py:22
+msgid "Password"
+msgstr "Пароль"
+
+#: task_manager/users/forms.py:23
+msgid "Your password must contain at least 3 characters."
+msgstr "Ваш пароль должен содержать как минимум 3 символа."
+
+#: task_manager/users/forms.py:26
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: task_manager/users/forms.py:27
+msgid "Please enter your password again to confirm."
+msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."

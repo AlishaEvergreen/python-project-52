@@ -14,14 +14,16 @@
   </head>
   <body class="d-flex flex-column min-vh-100 text-white bg-dark fs-6 lh-base">
     <header>
-        {% include "navbar.html" %}
+        {% include "includes/navbar.html" %}
     </header>
-    <main class="{% block main_classes %}container flex-grow-1 d-flex align-items-center justify-content-center py-5{% endblock %}">
+    <div class="container mt-3">
       {% bootstrap_messages %}
+    </div>
+    <main class="{% block main_classes %}container flex-grow-1 d-flex align-items-center justify-content-center py-5{% endblock %}">
       {% block content %}{% endblock %}
     </main>
     <footer class="mt-auto py-4">
-        {% include "footer.html" %}
+        {% include "includes/footer.html" %}
     </footer>
   </body>
 </html>

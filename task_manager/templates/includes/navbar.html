@@ -12,10 +12,10 @@
           <a class="nav-link" href="{% url 'users:index' %}">{% trans "Users" %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">{% trans "Log In" %}</a>
+          <a class="nav-link" aria-current="page" href="{% url 'login' %}">{% trans "Log In" context "menu_item" %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:create' %}">{% trans "Sign Up" %}</a>
+          <a class="nav-link" href="{% url 'users:create' %}">{% trans "Sign Up" context "menu_item" %}</a>
         </li>
       </ul>
       <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center">

@@ -1,24 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Russian translations for Task Manager
+# Copyright (C) 2025 Alina Makarovskaya
+# This file is distributed under the same license as the Task Manager package.
 msgid ""
 msgstr ""
 "Project-Id-Version: task_manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-22 00:45+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alina makarovskaya1307@gmail.com\n"
+"POT-Creation-Date: 2025-04-24 21:26+0300\n"
+"PO-Revision-Date: 2025-04-22 12:00+0300\n"
+"Last-Translator: Alina Makarovskaya <makarovskaya1307@gmail.com>\n"
 "Language-Team: Russian <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: task_manager/settings.py:146
 msgid "English"
@@ -28,35 +24,35 @@ msgstr "Английский"
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/templates/form.html:4 task_manager/templates/form.html:11
-#: task_manager/templates/navbar.html:18
-msgid "Sign Up"
-msgstr "Регистрация"
-
-#: task_manager/templates/form.html:34
-msgid "Create Account"
-msgstr "Зарегистрировать"
-
-#: task_manager/templates/form.html:40
-msgid "Already have an account?"
-msgstr "У вас уже есть аккаунт?"
-
-#: task_manager/templates/form.html:41
-msgid "Sign In"
-msgstr "Войти"
-
-#: task_manager/templates/index.html:4 task_manager/templates/navbar.html:5
+#: task_manager/templates/includes/navbar.html:5
+#: task_manager/templates/index.html:4
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
+#: task_manager/templates/includes/navbar.html:12
+#: task_manager/templates/users/index.html:4
+#: task_manager/templates/users/index.html:10
+msgid "Users"
+msgstr "Пользователи"
+
+#: task_manager/templates/includes/navbar.html:15
+msgctxt "menu_item"
+msgid "Log In"
+msgstr "Вход"
+
+#: task_manager/templates/includes/navbar.html:18
+msgctxt "menu_item"
+msgid "Sign Up"
+msgstr "Регистрация"
+
 #: task_manager/templates/index.html:8
 msgid "Welcome to Task Manager"
-msgstr "Добро пожаловать"
+msgstr "Добро пожаловать в Менеджер задач"
 
 #: task_manager/templates/index.html:10
 msgid "Task Manager is a simple but powerful system for managing tasks."
 msgstr ""
-"Менеджер задач – это простая, но мощная система для управления задачами."
+"Менеджер задач - это простая, но мощная система для управления задачами."
 
 #: task_manager/templates/index.html:11
 msgid "Create tasks, assign performers and update statuses – all in one place."
@@ -64,43 +60,66 @@ msgstr ""
 "Создавайте задачи, назначайте исполнителей и обновляйте статусы – все в "
 "одном месте."
 
-#: task_manager/templates/navbar.html:12
-#: task_manager/templates/users/index.html:4
-#: task_manager/templates/users/index.html:10
-msgid "Users"
-msgstr "Пользователи"
-
-#: task_manager/templates/navbar.html:15
+#: task_manager/templates/login_form.html:4
+#: task_manager/templates/login_form.html:5
 msgid "Log In"
 msgstr "Вход"
 
-#: task_manager/templates/users/index.html:16
-msgid "ID"
-msgstr ""
+#: task_manager/templates/login_form.html:6
+msgid "Enter"
+msgstr "Войти"
 
-#: task_manager/templates/users/index.html:17 task_manager/users/forms.py:15
+#: task_manager/templates/login_form.html:10
+msgid "Don’t have an account?"
+msgstr "У вас нет аккаунта?"
+
+#: task_manager/templates/login_form.html:11
+msgctxt "button"
+msgid "Sign Up"
+msgstr "Зарегистрировать"
+
+#: task_manager/templates/users/index.html:18 task_manager/users/forms.py:15
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: task_manager/templates/users/index.html:18
+#: task_manager/templates/users/index.html:19
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/templates/users/index.html:19
+#: task_manager/templates/users/index.html:20
 msgid "Date created"
 msgstr "Дата создания"
 
-#: task_manager/templates/users/index.html:33
+#: task_manager/templates/users/index.html:34
 msgid "Edit"
 msgstr "Изменить"
 
-#: task_manager/templates/users/index.html:36
+#: task_manager/templates/users/index.html:37
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/templates/users/index.html:44
+#: task_manager/templates/users/index.html:48
 msgid "No users found."
 msgstr "Пользователи не найдены."
+
+#: task_manager/templates/users/registration_form.html:4
+#: task_manager/templates/users/registration_form.html:5
+msgctxt "link"
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: task_manager/templates/users/registration_form.html:6
+msgid "Create Account"
+msgstr "Зарегистрировать"
+
+#: task_manager/templates/users/registration_form.html:10
+msgid "Already have an account?"
+msgstr "У вас уже есть аккаунт?"
+
+#: task_manager/templates/users/registration_form.html:11
+msgctxt "button"
+msgid "Log In"
+msgstr "Войти"
 
 #: task_manager/users/forms.py:16
 msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
@@ -131,3 +150,11 @@ msgstr "Подтверждение пароля"
 #: task_manager/users/forms.py:27
 msgid "Please enter your password again to confirm."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+
+#: task_manager/users/views.py:27
+msgid "User was successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/views.py:12
+msgid "You were logged in"
+msgstr "Вы залогинены"

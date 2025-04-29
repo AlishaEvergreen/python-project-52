@@ -28,6 +28,8 @@
         {% endfor %}
       </div>
 
+      {% block extra_fields %}{% endblock %}
+
       <div class="col-12 mt-4">
         <button class="btn btn-outline-success w-100 py-2" type="submit">
           {% block form_button %}{% endblock %}

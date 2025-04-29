@@ -7,7 +7,7 @@
   {{ field }}
   {% if field.help_text %}
     <div class="form-text text-light text-opacity-50">
-      {{ field.help_text }}
+      {{ field.help_text|striptags }}
     </div>
   {% endif %}
   {% if field.errors %}

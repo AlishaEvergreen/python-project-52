@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: task_manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 00:40+0300\n"
+"POT-Creation-Date: 2025-05-01 01:27+0300\n"
 "PO-Revision-Date: 2025-04-29 15:00+0300\n"
 "Last-Translator: Alina Makarovskaya <makarovskaya1307@gmail.com>\n"
 "Language-Team: Russian <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Русский"
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/includes/navbar.html:12
+#: task_manager/templates/includes/navbar.html:14
 #: task_manager/templates/users/index.html:4
 #: task_manager/templates/users/index.html:10
 msgid "Users"
@@ -61,25 +61,25 @@ msgstr "Пользователи"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: task_manager/templates/includes/navbar.html:20
+#: task_manager/templates/includes/navbar.html:18
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/templates/includes/navbar.html:23
+#: task_manager/templates/includes/navbar.html:19
 msgid "Tasks"
 msgstr "Задачи"
 
 # Login page
-#: task_manager/templates/includes/navbar.html:28
+#: task_manager/templates/includes/navbar.html:23
 msgid "Log Out"
 msgstr "Выход"
 
-#: task_manager/templates/includes/navbar.html:33
+#: task_manager/templates/includes/navbar.html:27
 msgctxt "menu_item"
 msgid "Log In"
 msgstr "Вход"
 
-#: task_manager/templates/includes/navbar.html:36
+#: task_manager/templates/includes/navbar.html:28
 msgctxt "menu_item"
 msgid "Sign Up"
 msgstr "Регистрация"
@@ -229,8 +229,6 @@ msgid "User was deleted successfully"
 msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py:74
-#, fuzzy
-#| msgid "Cannot delete object because it is being used."
 msgid "Cannot delete this user because they are being used"
 msgstr "Невозможно удалить объект, так как он используется."
 

@@ -183,7 +183,7 @@ msgstr "Подтверждение пароля"
 
 #: task_manager/users/forms.py:59
 msgid "Passwords don't match."
-msgstr "Пароли не совпадают."
+msgstr "Введенные пароли не совпадают."
 
 #: task_manager/users/forms.py:65
 msgid "The password is too short. It must contain at least 3 characters."

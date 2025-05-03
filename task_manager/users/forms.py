@@ -58,12 +58,21 @@ class CustomUserChangeForm(FormStyleMixin, UserChangeForm):
                     "password_confirmation",
                     _("Passwords don't match.")
                 )
+            elif len(password) < 3:
+                self.add_error(
+                    "password_confirmation",
+                    _(
+                        "The password is too short. "
+                        "It must contain at least 3 characters."
+                    ),
+                )
         return cleaned_data
 
     def save(self, commit=True):
         """Save user with new password if provided."""
         user = super().save(commit=False)
-        if password := self.cleaned_data.get("password"):
+        password = self.cleaned_data.get("password")
+        if password and len(password) >= 3:
             user.set_password(password)
         if commit:
             user.save()

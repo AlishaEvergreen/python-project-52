@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: task_manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 23:43+0300\n"
+"POT-Creation-Date: 2025-05-04 02:23+0300\n"
 "PO-Revision-Date: 2025-04-29 15:00+0300\n"
 "Last-Translator: Alina Makarovskaya <makarovskaya1307@gmail.com>\n"
 "Language-Team: Russian <LL@li.org>\n"
@@ -165,29 +165,30 @@ msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 "+/-/_."
 
-#: task_manager/users/forms.py:29 task_manager/users/forms.py:39
+#: task_manager/users/forms.py:29 task_manager/users/forms.py:62
 msgid "Your password must contain at least 3 characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: task_manager/users/forms.py:31 task_manager/users/forms.py:43
+#: task_manager/users/forms.py:31 task_manager/users/forms.py:66
 msgid "Please enter your password again to confirm."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
-#: task_manager/users/forms.py:38
-msgid "New Password"
-msgstr "Пароль"
-
-#: task_manager/users/forms.py:42
-msgid "Confirm Password"
-msgstr "Подтверждение пароля"
-
-#: task_manager/users/forms.py:59
+#: task_manager/users/forms.py:44 task_manager/users/forms.py:82
 msgid "Passwords don't match."
 msgstr "Введенные пароли не совпадают."
 
+#: task_manager/users/forms.py:51 task_manager/users/forms.py:88
+msgid "This password is too short. It must contain at least 3 characters."
+msgstr ""
+"Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа."
+
+#: task_manager/users/forms.py:61
+msgid "New Password"
+msgstr "Пароль"
+
 #: task_manager/users/forms.py:65
-msgid "The password is too short. It must contain at least 3 characters."
-msgstr "Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа."
+msgid "Confirm Password"
+msgstr "Подтверждение пароля"
 
 # Models
 #: task_manager/users/models.py:10

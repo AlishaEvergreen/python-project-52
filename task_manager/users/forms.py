@@ -31,6 +31,29 @@ class CustomUserCreationForm(FormStyleMixin, UserCreationForm):
                 _('Please enter your password again to confirm.'),
         }
 
+    def clean(self):
+        """Ensure passwords match and meet requirements."""
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get("password1")
+        password2 = cleaned_data.get("password2")
+
+        if password1 and password2:
+            if password1 != password2:
+                self.add_error(
+                    "password2",
+                    _("Passwords don't match.")
+                )
+
+            if len(password1) < 3:
+                self.add_error(
+                    "password2",
+                    _(
+                        "This password is too short. "
+                        "It must contain at least 3 characters."
+                    ),
+                )
+        return cleaned_data
+
 
 class CustomUserChangeForm(FormStyleMixin, UserChangeForm):
     """User update form with password change and Bootstrap styling."""
@@ -62,7 +85,7 @@ class CustomUserChangeForm(FormStyleMixin, UserChangeForm):
                 self.add_error(
                     "password_confirmation",
                     _(
-                        "The password is too short. "
+                        "This password is too short. "
                         "It must contain at least 3 characters."
                     ),
                 )

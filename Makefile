@@ -7,6 +7,18 @@ migrate:
 start:
 	uv run manage.py runserver 0.0.0.0:8000
 
+test:
+	uv run python3 manage.py test
+
+testcov:
+	uv run coverage run --source='.' manage.py test
+
+makemessages:
+	uv run django-admin makemessages --ignore="static" --ignore=".env"  -l ru
+
+compilemessages:
+	uv run django-admin compilemessages
+
 collectstatic:
 	uv run python3 manage.py collectstatic --no-input
 

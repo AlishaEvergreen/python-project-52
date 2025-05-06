@@ -26,5 +26,6 @@ class TestStatusModel(StatusTestCase):
             self.create_test_status()
 
     def test_blank_status_name(self):
+        status = Status(name='')
         with self.assertRaises(Exception):
-            self.create_test_status(name='')
+            status.full_clean()

@@ -14,7 +14,7 @@
           <a class="nav-link" href="{% url 'users:index' %}">{% trans "Users" %}</a>
         </li>
         {% if user.is_authenticated %}
-          <li class="nav-item"><a class="nav-link" href="#">{% trans "Statuses" %}</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'statuses:index' %}">{% trans "Statuses" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="#">{% trans "Labels" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="#">{% trans "Tasks" %}</a></li>
           <li class="nav-item">

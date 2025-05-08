@@ -29,7 +29,7 @@ class TestLabelCreateView(LabelTestCase):
 
         response = self.client.get(reverse_lazy('labels:create'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'form.html')
+        self.assertTemplateUsed(response, 'labels/label_form.html')
 
         response = self.client.post(
             reverse_lazy('labels:create'),
@@ -65,7 +65,7 @@ class TestLabelUpdateView(LabelTestCase):
             reverse_lazy('labels:update', kwargs={'pk': label1.id})
         )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'form.html')
+        self.assertTemplateUsed(response, 'labels/label_form.html')
 
         response = self.client.post(
             reverse_lazy('labels:update', kwargs={'pk': label1.id}),

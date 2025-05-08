@@ -13,11 +13,11 @@ class TestLabelModel(LabelTestCase):
     def test_label_creation(self):
         initial_count = Label.objects.count()
         label = self.create_test_label()
-        self.assertEqual(self.label_count, initial_count + 1)
+        self.assertEqual(Label.objects.count(), initial_count + 1)
+        self.assertEqual(label.name, self.valid_label_data['name'])
         self.assertEqual(str(label), self.valid_label_data['name'])
 
     def test_duplicate_label_name(self):
-        self.create_test_label(name=self.label1.name)
         with self.assertRaises(Exception):
             self.create_test_label(name=self.label1.name)
 

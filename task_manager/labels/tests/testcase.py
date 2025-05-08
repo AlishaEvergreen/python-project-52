@@ -19,7 +19,7 @@ class LabelTestCase(TestCase):
         self.label_count = Label.objects.count()
 
         self.valid_label_data = {
-            'name': 'Refactoring ',
+            'name': 'Refactoring',
         }
 
         self.update_label_data = {

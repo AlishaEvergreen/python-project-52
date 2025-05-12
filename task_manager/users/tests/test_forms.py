@@ -1,9 +1,9 @@
 from task_manager.users.forms import (
-    CustomUserCreationForm,
     CustomUserChangeForm,
+    CustomUserCreationForm,
 )
-from task_manager.users.tests.testcase import UserTestCase
 from task_manager.users.models import User
+from task_manager.users.tests.testcase import UserTestCase
 
 
 class TestCustomUserCreationForm(UserTestCase):

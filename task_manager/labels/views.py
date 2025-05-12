@@ -8,12 +8,12 @@ from django.views.generic import (
     UpdateView,
 )
 
+from task_manager.labels.forms import LabelCreationForm
+from task_manager.labels.models import Label
 from task_manager.mixins import (
     CustomLoginRequiredMixin,
     ProtectErrorMixin,
 )
-from task_manager.labels.models import Label
-from task_manager.labels.forms import LabelCreationForm
 
 
 class LabelListView(CustomLoginRequiredMixin, ListView):

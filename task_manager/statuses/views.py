@@ -12,8 +12,8 @@ from task_manager.mixins import (
     CustomLoginRequiredMixin,
     ProtectErrorMixin,
 )
-from task_manager.statuses.models import Status
 from task_manager.statuses.forms import StatusCreationForm
+from task_manager.statuses.models import Status
 
 
 class StatusListView(CustomLoginRequiredMixin, ListView):

@@ -1,6 +1,6 @@
 from task_manager.labels.forms import LabelCreationForm
-from task_manager.labels.tests.testcase import LabelTestCase
 from task_manager.labels.models import Label
+from task_manager.labels.tests.testcase import LabelTestCase
 
 
 class TestLabelCreationForm(LabelTestCase):

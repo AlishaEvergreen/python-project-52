@@ -13,12 +13,28 @@ class FormStyleMixin:
     """Adds Bootstrap styles to form fields."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        bs_classes = 'form-control bg-secondary bg-opacity-50 border-secondary'
-        for field in self.fields.values():
-            field.widget.attrs.update({
-                'class': bs_classes,
+
+        base_input_class = (
+            'form-control bg-secondary bg-opacity-50 border-secondary'
+        )
+        base_select_class = (
+            'form-select bg-secondary bg-opacity-50 border-secondary'
+        )
+
+        for name, field in self.fields.items():
+            attrs = {
                 'placeholder': field.label
-            })
+            }
+
+            if name == 'description':
+                attrs['class'] = base_input_class
+                attrs['rows'] = '3'
+            elif name in ['status', 'executor']:
+                attrs['class'] = base_select_class
+            else:
+                attrs['class'] = base_input_class
+
+            field.widget.attrs.update(attrs)
 
 
 class CustomLoginRequiredMixin(LoginRequiredMixin):

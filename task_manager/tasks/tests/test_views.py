@@ -109,7 +109,7 @@ class TestTaskCreateView(TaskTestCase):
 
         response = self.client.get(reverse_lazy('tasks:create'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'form.html')
+        self.assertTemplateUsed(response, 'tasks/task_form.html')
 
         response = self.client.post(
             reverse_lazy('tasks:create'),
@@ -143,7 +143,7 @@ class TestTaskUpdateView(TaskTestCase):
             reverse_lazy('tasks:update', kwargs={'pk': self.task1.id})
         )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'form.html')
+        self.assertTemplateUsed(response, 'tasks/task_form.html')
 
         response = self.client.post(
             reverse_lazy('tasks:update', kwargs={'pk': self.task1.id}),
@@ -165,7 +165,7 @@ class TestTaskUpdateView(TaskTestCase):
             reverse_lazy('tasks:update', kwargs={'pk': task.id})
         )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'form.html')
+        self.assertTemplateUsed(response, 'tasks/task_form.html')
 
         response = self.client.post(
             reverse_lazy('tasks:update', kwargs={'pk': task.id}),
@@ -192,7 +192,7 @@ class TestTaskDeleteView(TaskTestCase):
         self.assertRedirects(response, reverse_lazy('login'))
 
     def test_owner_can_delete_task(self):
-        self.client.force_login(self.user1)
+        self.client.force_login(self.user2)
         initial_count = Task.objects.count()
 
         response = self.client.get(
@@ -212,20 +212,22 @@ class TestTaskDeleteView(TaskTestCase):
             Task.objects.get(pk=self.task1.id)
 
     def test_non_author_cannot_delete_task(self):
-        self.client.force_login(self.user2)
+        user = self.user1
+        task = self.task1
+        self.client.force_login(user)
         initial_count = Task.objects.count()
 
         response = self.client.get(
-            reverse_lazy('tasks:delete', kwargs={'pk': self.task1.id})
+            reverse_lazy('tasks:delete', kwargs={'pk': task.id})
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('tasks:index'))
 
         response = self.client.post(
-            reverse_lazy('tasks:delete', kwargs={'pk': self.task1.id})
+            reverse_lazy('tasks:delete', kwargs={'pk': task.id})
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('tasks:index'))
         self.assertEqual(Task.objects.count(), initial_count)
-        unchanged_task = Task.objects.get(id=self.task1.id)
-        self.assertEqual(unchanged_task.name, self.task1.name)
+        unchanged_task = Task.objects.get(id=task.id)
+        self.assertEqual(unchanged_task.name, task.name)

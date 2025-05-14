@@ -3,8 +3,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+
+from django.shortcuts import render
 from django.http import HttpResponse
-from django.views import View
 
 from task_manager.forms import CustomLoginForm
 
@@ -24,8 +25,7 @@ class CustomLogoutView(SuccessMessageMixin, LogoutView):
         return super().dispatch(request, *args, **kwargs)
 
 
-class RollbarTestErrorView(View):
-    def get(self, request):
-        a = None
-        a.hello()
-        return HttpResponse("This will never be shown")
+def index(request):
+    a = None
+    a.hello() # Creating an error with an invalid line of code
+    return HttpResponse("Hello, world. You're at the pollapp index.")

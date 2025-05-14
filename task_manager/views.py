@@ -3,6 +3,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.http import HttpResponse
+from django.views import View
 
 from task_manager.forms import CustomLoginForm
 
@@ -22,6 +24,8 @@ class CustomLogoutView(SuccessMessageMixin, LogoutView):
         return super().dispatch(request, *args, **kwargs)
 
 
-def test_error(request):
-    a = None
-    a.hello()
+class RollbarTestErrorView(View):
+    def get(self, request):
+        a = None
+        a.hello()
+        return HttpResponse("This will never be shown")

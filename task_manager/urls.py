@@ -18,7 +18,11 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
-from task_manager.views import CustomLoginView, CustomLogoutView
+from task_manager.views import (
+    CustomLoginView,
+    CustomLogoutView,
+    RollbarTestErrorView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +34,5 @@ urlpatterns = [
     path('statuses/', include('task_manager.statuses.urls')),
     path('labels/', include('task_manager.labels.urls')),
     path('tasks/', include('task_manager.tasks.urls')),
+    path('rollbar-test/', RollbarTestErrorView.as_view(), name='rollbar_test'),
 ]

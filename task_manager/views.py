@@ -20,3 +20,8 @@ class CustomLogoutView(SuccessMessageMixin, LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, _('You were logged out'))
         return super().dispatch(request, *args, **kwargs)
+
+
+def test_error(request):
+    a = None
+    a.hello()

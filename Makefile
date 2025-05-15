@@ -33,3 +33,5 @@ lint:
 
 format-app:
 	uv run ruff check --fix task_manager
+
+check: test lint

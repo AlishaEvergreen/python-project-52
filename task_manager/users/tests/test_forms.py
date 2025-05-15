@@ -85,8 +85,8 @@ class TestCustomUserChangeForm(UserTestCase):
     def get_form(self, overrides=None):
         data = self.update_user_data.copy()
         data.update({
-            'password': data.pop('password1'),
-            'password_confirmation': data.pop('password2')
+            'password1': data.pop('password1'),
+            'password2': data.pop('password2')
         })
         if overrides:
             data.update(overrides)
@@ -102,32 +102,34 @@ class TestCustomUserChangeForm(UserTestCase):
         ))
 
     def test_passwords_do_not_match(self):
-        form = self.get_form({'password_confirmation': 'WrongConfirm'})
+        form = self.get_form({'password2': 'WrongConfirm'})
         self.assertFalse(form.is_valid())
-        self.assertIn('password_confirmation', form.errors)
+        self.assertIn('password2', form.errors)
 
     def test_short_password(self):
         form = self.get_form({
-            'password': '12',
-            'password_confirmation': '12'
+            'password1': '12',
+            'password2': '12'
         })
         self.assertFalse(form.is_valid())
-        self.assertIn('password_confirmation', form.errors)
+        self.assertIn('password2', form.errors)
 
     def test_missing_password_fields(self):
         for case in [
-            {'password': '', 'password_confirmation': 'SomePassword'},
-            {'password': 'SomePassword', 'password_confirmation': ''}
+            {'password1': '', 'password2': 'SomePassword'},
+            {'password1': 'SomePassword', 'password2': ''}
         ]:
             with self.subTest(case=case):
                 form = self.get_form(case)
                 self.assertFalse(form.is_valid())
-                self.assertIn('password_confirmation', form.errors)
+                self.assertTrue(
+                    'password1' in form.errors or 'password2' in form.errors
+                )
 
     def test_update_with_existing_valid_password(self):
         form = self.get_form({
-            'password': 'QueenInNorth456',
-            'password_confirmation': 'QueenInNorth456',
+            'password1': 'QueenInNorth456',
+            'password2': 'QueenInNorth456',
         })
         self.assertTrue(form.is_valid())
         user = form.save()

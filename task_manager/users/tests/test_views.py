@@ -110,8 +110,8 @@ class TestUserUpdateView(UserTestCase):
             'first_name': 'Aegon',
             'last_name': 'Targaryen',
             'username': 'aegon_t',
-            'password': 'Dracarys321',
-            'password_confirmation': 'Dracarys321',
+            'password1': 'Dracarys321',
+            'password2': 'Dracarys321',
         }
 
         response = self.client.get(reverse_lazy(
@@ -145,8 +145,8 @@ class TestUserUpdateView(UserTestCase):
             'first_name': 'Petyr',
             'last_name': 'Baelish',
             'username': 'chaos_is_a_ladder',
-            'password': 'ILoveCatelyn',
-            'password_confirmation': 'ILoveCatelyn',
+            'password1': 'ILoveCatelyn',
+            'password2': 'ILoveCatelyn',
         }
 
         response = self.client.get(

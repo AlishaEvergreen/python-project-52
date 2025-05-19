@@ -7,7 +7,7 @@ from task_manager.users.models import User
 
 
 class BaseUserForm:
-    """Base Meta settings for User forms."""
+    """Shared Meta config for user forms."""
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username')
@@ -20,7 +20,7 @@ class BaseUserForm:
 
 
 class CustomUserCreationForm(FormStyleMixin, UserCreationForm):
-    """User registration form with Bootstrap and password fields."""
+    """User registration form with custom validation and styling."""
     class Meta(BaseUserForm.Meta):
         fields = (*BaseUserForm.Meta.fields, 'password1', 'password2')
         help_texts = {
@@ -32,7 +32,7 @@ class CustomUserCreationForm(FormStyleMixin, UserCreationForm):
         }
 
     def clean(self):
-        """Ensure passwords match and meet requirements."""
+        """Validate password length and equality."""
         cleaned_data = super().clean()
         password1 = cleaned_data.get("password1")
         password2 = cleaned_data.get("password2")
@@ -56,7 +56,7 @@ class CustomUserCreationForm(FormStyleMixin, UserCreationForm):
 
 
 class CustomUserChangeForm(FormStyleMixin, forms.ModelForm):
-    """User update form with password change and Bootstrap styling."""
+    """User profile edit form with password update support."""
     password1 = forms.CharField(
         label=_("New Password"),
         widget=forms.PasswordInput,
@@ -79,7 +79,7 @@ class CustomUserChangeForm(FormStyleMixin, forms.ModelForm):
             del self.fields['password']
 
     def clean(self):
-        """Ensure passwords match."""
+        """Validate password length and equality."""
         cleaned_data = super().clean()
         password1 = cleaned_data.get("password1")
         password2 = cleaned_data.get("password2")
@@ -101,6 +101,7 @@ class CustomUserChangeForm(FormStyleMixin, forms.ModelForm):
         return cleaned_data
 
     def save(self, commit=True):
+        """Save updated user with new password if provided."""
         user = super().save(commit=False)
         if password1 := self.cleaned_data.get("password1"):
             user.set_password(password1)

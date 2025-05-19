@@ -35,11 +35,25 @@ class FormStyleMixin:
 
 
 class CustomLoginRequiredMixin(LoginRequiredMixin):
-    """Redirects unauthorized users without showing extra messages."""
+    """
+    Mixin that requires the user to be authenticated.
+
+    If the user is not authenticated, shows an error message
+    and redirects them to the login page without using the default
+    'next' query parameter.
+    """
     login_url = reverse_lazy('login')
     redirect_field_name = None
 
     def handle_no_permission(self):
+        """
+        Adds an error message if the user is not authenticated
+        and delegates to the default permission handler.
+
+        Returns:
+            HttpResponse: A redirect to the login page or another
+            appropriate response from the base class.
+        """
         if not self.request.user.is_authenticated:
             msg = _('You are not authorized! Please, log in.')
             messages.error(self.request, msg)
@@ -53,6 +67,12 @@ class BasePermissionMixin(UserPassesTestMixin):
     redirect_field_name = None
 
     def handle_no_permission(self):
+        """
+        Redirects authenticated users with error message, or defers to parent.
+
+        Returns:
+            HttpResponse: Redirect or default permission handling.
+        """
         if self.request.user.is_authenticated:
             messages.error(self.request, self.permission_denied_message)
             return redirect(self.permission_denied_url)
@@ -65,6 +85,12 @@ class UserPermissionMixin(BasePermissionMixin):
     permission_denied_message = msg
 
     def test_func(self):
+        """
+        Checks if the requesting user matches the object user.
+
+        Returns:
+            bool: True if user is owner, else False.
+        """
         return self.get_object() == self.request.user
 
 
@@ -74,6 +100,12 @@ class AuthorPermissionMixin(BasePermissionMixin):
     permission_denied_message = msg
 
     def test_func(self):
+        """
+        Checks if the requesting user is the object's author.
+
+        Returns:
+            bool: True if user is author, else False.
+        """
         return self.get_object().author == self.request.user
 
 
@@ -85,6 +117,15 @@ class ProtectErrorMixin:
     protected_object_url = None
 
     def post(self, request, *args, **kwargs):
+        """
+        Attempts to delete object and handles ProtectedError.
+
+        Args:
+            request: The HTTP request object.
+
+        Returns:
+            HttpResponse: Redirects with error message if deletion fails.
+        """
         try:
             return super().post(request, *args, **kwargs)
         except ProtectedError:

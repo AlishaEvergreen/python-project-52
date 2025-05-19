@@ -5,6 +5,7 @@ from task_manager.statuses.tests.testcase import StatusTestCase
 
 class TestStatusCreationForm(StatusTestCase):
     def test_valid_data(self):
+        """Test valid status form data creates a status."""
         form = StatusCreationForm(data=self.valid_status_data)
         self.assertTrue(form.is_valid())
         status = form.save()

@@ -5,6 +5,9 @@ from task_manager.users.models import User
 
 
 class LabelTestCase(TestCase):
+    """
+    Base test case with preloaded fixtures and shared setup for label tests.
+    """
     fixtures = ['test_users.json', 'test_labels.json']
 
     def setUp(self):

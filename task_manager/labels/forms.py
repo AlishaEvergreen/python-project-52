@@ -5,6 +5,7 @@ from task_manager.mixins import FormStyleMixin
 
 
 class LabelCreationForm(FormStyleMixin, ModelForm):
+    """Form for creating and updating Label instances."""
     class Meta:
         model = Label
         fields = ['name']

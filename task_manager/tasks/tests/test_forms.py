@@ -5,6 +5,7 @@ from task_manager.tasks.tests.testcase import TaskTestCase
 
 class TestTaskCreationForm(TaskTestCase):
     def test_valid_data(self):
+        """Test valid task creation with m2m (labels) and foreign keys."""
         user2 = self.user2
         form = TaskCreationForm(data=self.valid_task_data)
         self.assertTrue(form.is_valid())

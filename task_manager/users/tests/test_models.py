@@ -4,6 +4,7 @@ from task_manager.users.tests.testcase import UserTestCase
 
 class TestUserModel(UserTestCase):
     def create_test_user(self, **overrides):
+        """Helper to create a user with overrides."""
         user_data = {
             'first_name': self.valid_user_data['first_name'],
             'last_name': self.valid_user_data['last_name'],

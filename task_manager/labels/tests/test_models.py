@@ -4,6 +4,7 @@ from task_manager.labels.tests.testcase import LabelTestCase
 
 class TestLabelModel(LabelTestCase):
     def create_test_label(self, **overrides):
+        """Helper method to create a Label with optional overrides."""
         label_data = {
             'name': self.valid_label_data['name']
         }

@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Label(models.Model):
+    """Represents a label for categorizing tasks."""
     name = models.CharField(
         max_length=255,
         blank=False,
@@ -17,6 +18,7 @@ class Label(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def delete(self, *args, **kwargs):
+        """Prevent deletion if label is assigned to any tasks."""
         if self.task_set.exists():
             raise ProtectedError(
                 _("Cannot delete this label because they are being used"),

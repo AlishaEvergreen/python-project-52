@@ -28,6 +28,7 @@ class UserListView(ListView):
 
 
 class BaseUserView(SuccessMessageMixin):
+    """Base configuration for user-related views (create/update/delete)."""
     model = User
     template_name = 'users/registration_form.html'
     context_object_name = 'user'

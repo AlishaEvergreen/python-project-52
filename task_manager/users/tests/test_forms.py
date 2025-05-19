@@ -8,6 +8,7 @@ from task_manager.users.tests.testcase import UserTestCase
 
 class TestCustomUserCreationForm(UserTestCase):
     def get_form(self, overrides=None):
+        """Return a pre-filled user creation form, optionally overridden."""
         data = self.valid_user_data.copy()
         if overrides:
             data.update(overrides)
@@ -83,6 +84,7 @@ class TestCustomUserCreationForm(UserTestCase):
 
 class TestCustomUserChangeForm(UserTestCase):
     def get_form(self, overrides=None):
+        """Return user change form with updated data and passwords."""
         data = self.update_user_data.copy()
         data.update({
             'password1': data.pop('password1'),

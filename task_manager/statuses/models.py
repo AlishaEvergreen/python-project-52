@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Status(models.Model):
+    """Represents a status for task state tracking."""
     name = models.CharField(
         max_length=255,
         blank=False,

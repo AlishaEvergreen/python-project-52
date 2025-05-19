@@ -6,6 +6,7 @@ from task_manager.tasks.tests.testcase import TaskTestCase
 
 class TestTaskModel(TaskTestCase):
     def test_task_creation_with_labels_and_executor(self):
+        """Test full task creation including labels and executor."""
         task = Task.objects.create(
             name=self.valid_task_data['name'],
             description=self.valid_task_data['description'],

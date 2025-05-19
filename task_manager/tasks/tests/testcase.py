@@ -7,6 +7,10 @@ from task_manager.users.models import User
 
 
 class TaskTestCase(TestCase):
+    """
+    Base test case for tasks with fixture setup
+    for users, labels, statuses, and tasks.
+    """
     fixtures = ['test_users.json',
                 'test_statuses.json',
                 'test_labels.json',

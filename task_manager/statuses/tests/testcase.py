@@ -5,6 +5,7 @@ from task_manager.users.models import User
 
 
 class StatusTestCase(TestCase):
+    """Base test case with preloaded users and statuses fixtures."""
     fixtures = ['test_users.json', 'test_statuses.json']
 
     def setUp(self):

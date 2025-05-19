@@ -7,6 +7,7 @@ from task_manager.users.models import User
 
 
 class Task(models.Model):
+    """Represents a task with optional executor, labels, and description."""
     name = models.CharField(
         max_length=255,
         blank=False,

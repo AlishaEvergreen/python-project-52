@@ -4,6 +4,7 @@ from task_manager.users.models import User
 
 
 class UserTestCase(TestCase):
+    """Base test case for user-related tests with fixture setup."""
     fixtures = ['test_users.json']
 
     def setUp(self):

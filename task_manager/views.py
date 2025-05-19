@@ -8,6 +8,7 @@ from task_manager.forms import CustomLoginForm
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):
+    """Custom login view with success message."""
     template_name = 'login_form.html'
     form_class = CustomLoginForm
     next_page = reverse_lazy('index')
@@ -15,8 +16,10 @@ class CustomLoginView(SuccessMessageMixin, LoginView):
 
 
 class CustomLogoutView(SuccessMessageMixin, LogoutView):
+    """Custom logout view with info message."""
     next_page = reverse_lazy('index')
 
     def dispatch(self, request, *args, **kwargs):
+        """Adds an info message when user logs out."""
         messages.info(request, _('You were logged out'))
         return super().dispatch(request, *args, **kwargs)

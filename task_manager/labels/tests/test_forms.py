@@ -5,6 +5,7 @@ from task_manager.labels.tests.testcase import LabelTestCase
 
 class TestLabelCreationForm(LabelTestCase):
     def test_valid_data(self):
+        """Test that form is valid with correct data and label is created."""
         form = LabelCreationForm(data=self.valid_label_data)
         self.assertTrue(form.is_valid())
         label = form.save()

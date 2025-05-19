@@ -4,6 +4,7 @@ from task_manager.statuses.tests.testcase import StatusTestCase
 
 class TestStatusModel(StatusTestCase):
     def create_test_status(self, **overrides):
+        """Helper to create a status with optional overrides."""
         status_data = {
             'name': self.valid_status_data['name'],
         }

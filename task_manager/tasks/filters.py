@@ -7,6 +7,9 @@ from task_manager.tasks.models import Task
 
 
 class TaskFilter(django_filters.FilterSet):
+    """
+    FilterSet for tasks, including custom filter for current user's tasks.
+    """
     user_own_tasks = django_filters.BooleanFilter(
         label=_("Only my own tasks"),
         widget=CheckboxInput,
@@ -22,6 +25,7 @@ class TaskFilter(django_filters.FilterSet):
         fields = ['status', 'executor', 'labels']
 
     def filter_user_own_tasks(self, queryset, name, value):
+        """Return tasks created by the current user if filter is active."""
         if (value and hasattr(self, 'request') and
                 self.request.user.is_authenticated):
             return queryset.filter(author=self.request.user)

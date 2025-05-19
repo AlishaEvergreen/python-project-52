@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -11,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
   </head>
   <body class="d-flex flex-column min-vh-100 text-white bg-dark fs-6 lh-base">
     <header>
